@@ -117,9 +117,6 @@ class openssh (
     include openssh::install
   }
 
-  if $restart_service == true {
-    class { 'openssh::service': } -> class { 'openssh::config': }
-  } else {
-    class { 'openssh::config': }
-  }
+  class { 'openssh::service':
+  } -> class { 'openssh::config': }
 }
