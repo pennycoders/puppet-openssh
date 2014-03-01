@@ -92,34 +92,34 @@
 # MIT License
 #
 class openssh (
-  $port,
-  $permit_root_login,
-  $log_level,
-  $x11_forwarding,
-  $max_auth_tries,
-  $password_authentication,
-  $ciphers,
-  $client_alive_interval,
-  $client_alive_count_max,
-  $allow_users,
-  $deny_users,
-  $banner,
-  $sftp_chroot,
-  $config_template,
-  $service_name,
-  $service_ensure,
-  $service_enable,
-  $restart_service,
-  $package_name,
-  $package_ensure) inherits openssh::params {
+  $port                    = $openssh::params::port,
+  $permit_root_login       = $openssh::params::allow_users,
+  $log_level               = $openssh::params::log_level,
+  $x11_forwarding          = $openssh::params::x11_forwarding,
+  $max_auth_tries          = $openssh::params::max_auth_tries,
+  $password_authentication = $openssh::params::password_authentication,
+  $ciphers                 = $openssh::params::ciphers,
+  $client_alive_interval   = $openssh::params::client_alive_interval,
+  $client_alive_count_max  = $openssh::params::client_alive_count_max,
+  $allow_users             = $openssh::params::allow_users,
+  $deny_users              = $openssh::params::deny_users,
+  $banner                  = $openssh::params::banner,
+  $sftp_chroot             = $openssh::params::sftp_chroot,
+  $config_template         = $openssh::params::config_template,
+  $service_name            = $openssh::params::service_name,
+  $service_ensure          = $openssh::params::service_ensure,
+  $service_enable          = $openssh::params::service_enable,
+  $restart_service         = $openssh::params::restart_service,
+  $package_name            = $openssh::params::package_name,
+  $package_ensure          = $openssh::params::package_ensure) inherits openssh::params {
   if $package_ensure == true {
     include openssh::install
   }
 
   if $restart_service == 'running' {
-    include openssh::service
+    class { 'openssh::service': }
   }
 
-  include openssh::config
-
+  class { 'openssh::config':
+  }
 }

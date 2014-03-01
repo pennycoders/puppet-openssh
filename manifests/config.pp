@@ -10,12 +10,12 @@
 #
 # Do not call directly.
 #
-class openssh::config inherits openssh::params {
-  file { $config_file:
+class openssh::config {
+  file { $openssh::config_file:
     ensure  => file,
     mode    => '0600',
     owner   => 'root',
     group   => 'root',
-    content => template($config_template)
+    content => template($openssh::config_template)
   }
 }
