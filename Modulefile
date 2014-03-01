@@ -1,5 +1,5 @@
 name    'pennycoders-openssh'
-version '1.0.5'
+version '1.0.6'
 source 'https://github.com/pennycoders/puppet-openssh'
 author 'Alex <dtk@dtk.me>'
 license 'ASL 2.0'

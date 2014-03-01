@@ -115,7 +115,7 @@ class openssh (
     include openssh::install
   }
 
-  if $service_ensure == true {
+  if $service_ensure == 'present' {
     include openssh::service
   }
 

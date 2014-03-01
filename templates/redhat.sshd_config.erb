@@ -128,7 +128,7 @@ ClientAliveCountMax <%= @client_alive_count_max %>
 #ChrootDirectory none
 Ciphers <%= @ciphers %>
 
-<% if banner != 'UNSET' -%>Banner <%= @banner %><% end -%>
+<% if @banner != 'UNSET' -%>Banner <%= @banner %><% end -%>
 
 <% if @sftp_chroot == 'true' -%>
 Subsystem sftp internal-sftp
