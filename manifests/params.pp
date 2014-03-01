@@ -19,7 +19,7 @@ class openssh::params (
   $allow_users,
   $deny_users,
   $banner,
-  $config_template) {
+  $config_template) inherits openssh {
   case $::osfamily {
     redhat  : {
       $service_name    = 'sshd'
