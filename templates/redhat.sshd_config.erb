@@ -39,9 +39,9 @@ LogLevel <%= @log_level %>
 # Authentication:
 
 #LoginGraceTime 2m
-PermitRootLogin <%= permit_root_login %>
+PermitRootLogin <%= @permit_root_login %>
 #StrictModes yes
-MaxAuthTries <%= max_auth_tries %>
+MaxAuthTries <%= @max_auth_tries %>
 #MaxSessions 10
 <% if allow_users != 'UNSET' -%>AllowUsers <%= @allow_users %><% end -%>
 <% if deny_users != 'UNSET' -%>DenyUsers <%= @deny_users %><% end -%>
