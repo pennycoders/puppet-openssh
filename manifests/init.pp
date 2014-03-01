@@ -107,15 +107,16 @@ class openssh (
   $sftp_chroot             = false,
   $config_template         = $openssh::params::config_template,
   $service_name            = $openssh::params::service_name,
-  $service_ensure          = running,
+  $service_ensure          = "running",
   $service_enable          = true,
+  $restart_service         = true,
   $package_name            = 'openssh-server',
   $package_ensure          = present) inherits openssh::params {
   if $package_ensure == true {
     include openssh::install
   }
 
-  if $service_ensure == 'present' {
+  if $restart_service == 'running' {
     include openssh::service
   }
 

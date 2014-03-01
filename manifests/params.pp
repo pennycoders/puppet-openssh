@@ -30,6 +30,7 @@ class openssh::params {
   $x11_forwarding          = 'no'
   $max_auth_tries          = 4
   $password_authentication = 'yes'
+  $restart_service         = true
   $ciphers                 = 'aes128-ctr,aes192-ctr,aes256-ctr'
   $client_alive_interval   = 300
   $client_alive_count_max  = 0
