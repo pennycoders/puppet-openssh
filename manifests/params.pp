@@ -6,7 +6,8 @@
 #
 # Do not call directly.
 #
-class openssh::params {
+class openssh::params (
+  $config_template) {
   case $::osfamily {
     redhat  : {
       $service_name    = 'sshd'
