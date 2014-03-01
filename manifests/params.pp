@@ -13,7 +13,6 @@ class openssh::params (
   $x11_forwarding          = 'no',
   $max_auth_tries          = '5',
   $password_authentication = 'yes',
-  $ciphers,
   $client_alive_interval,
   $client_alive_count_max,
   $allow_users,
