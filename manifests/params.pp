@@ -18,8 +18,7 @@ class openssh::params (
   $client_alive_count_max,
   $allow_users,
   $deny_users,
-  $banner,
-  $config_template) inherits openssh {
+  $banner) {
   case $::osfamily {
     redhat  : {
       $service_name    = 'sshd'
