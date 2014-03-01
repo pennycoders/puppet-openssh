@@ -17,5 +17,6 @@ class openssh::config inherits openssh::params {
     owner   => 'root',
     group   => 'root',
     content => template($config_template),
+    notify  => Service[$service_name]
   }
 }
