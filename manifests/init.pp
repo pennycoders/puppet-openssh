@@ -110,7 +110,7 @@ class openssh (
   $service_ensure          = running,
   $service_enable          = true,
   $package_name            = 'openssh-server',
-  $package_ensure          = present) inherits openssh::config {
+  $package_ensure          = present) inherits openssh::params {
   if $package_ensure == true {
     include openssh::install
   }

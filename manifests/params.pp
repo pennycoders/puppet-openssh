@@ -6,25 +6,7 @@
 #
 # Do not call directly.
 #
-class openssh::params (
-  $port                    = $openssh::port,
-  $permit_root_login       = $openssh::permit_root_login,
-  $log_level               = $openssh::log_level,
-  $x11_forwarding          = $openssh::x11_forwarding,
-  $max_auth_tries          = $openssh::max_auth_tries,
-  $password_authentication = $openssh::password_authentication,
-  $ciphers                 = $openssh::ciphers,
-  $client_alive_interval   = $openssh::client_alive_interval,
-  $client_alive_count_max  = $openssh::client_alive_count_max,
-  $allow_users             = $openssh::allow_users,
-  $deny_users              = $openssh::deny_users,
-  $banner                  = $openssh::banner,
-  $sftp_chroot             = $openssh::sftp_chroot,
-  $service_ensure          = $openssh::service_ensure,
-  $service_enable          = $openssh::service_enable,
-  $package_name            = $openssh::package_name,
-  $package_ensure          = $openssh::package_ensure,
-  $config_template         = $openssh::config_template) {
+class openssh::params {
   if $config_template == undef {
     case $::osfamily {
       redhat  : {
@@ -40,4 +22,21 @@ class openssh::params (
       }
     }
   }
+  $port                    = 22
+  $permit_root_login       = 'no'
+  $log_level               = 'INFO'
+  $x11_forwarding          = 'no'
+  $max_auth_tries          = 4
+  $password_authentication = 'yes'
+  $ciphers                 = 'aes128-ctr,aes192-ctr,aes256-ctr'
+  $client_alive_interval   = 300
+  $client_alive_count_max  = 0
+  $allow_users             = 'UNSET'
+  $deny_users              = 'UNSET'
+  $banner                  = '/etc/issue.net'
+  $sftp_chroot             = false
+  $service_ensure          = running
+  $service_enable          = true
+  $package_name            = 'openssh-server'
+  $package_ensure          = present
 }
