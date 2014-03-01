@@ -6,18 +6,7 @@
 #
 # Do not call directly.
 #
-class openssh::params (
-  $port                    = 22,
-  $permit_root_login       = 'yes',
-  $log_level               = 'INFO',
-  $x11_forwarding          = 'no',
-  $max_auth_tries          = '5',
-  $password_authentication = 'yes',
-  $client_alive_interval,
-  $client_alive_count_max,
-  $allow_users,
-  $deny_users,
-  $banner) {
+class openssh::params {
   case $::osfamily {
     redhat  : {
       $service_name    = 'sshd'
