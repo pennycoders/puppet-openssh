@@ -111,6 +111,7 @@ class openssh (
   $service_enable          = $openssh::params::service_enable,
   $restart_service         = $openssh::params::restart_service,
   $package_name            = $openssh::params::package_name,
+  $config_file             = $openssh::params::config_file,
   $package_ensure          = $openssh::params::package_ensure) inherits openssh::params {
   if $package_ensure == true {
     include openssh::install
@@ -121,5 +122,6 @@ class openssh (
   }
 
   class { 'openssh::config':
+    notify => Service[$service_name]
   }
 }
