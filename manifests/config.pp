@@ -16,6 +16,9 @@ class openssh::config {
     mode    => '0600',
     owner   => 'root',
     group   => 'root',
+    require => [
+      Class['openssh::service'],
+      Service[$openssh::service_name]],
     content => template($openssh::config_template)
   }
 }
