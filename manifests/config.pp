@@ -16,6 +16,6 @@ class openssh::config inherits openssh::params {
     mode    => '0600',
     owner   => 'root',
     group   => 'root',
-    content => template($openssh::params::config_template),
+    content => template($config_template),
   }
 }
