@@ -92,26 +92,26 @@
 # MIT License
 #
 class openssh (
-  $port                    = 22,
-  $permit_root_login       = 'no',
-  $log_level               = 'INFO',
-  $x11_forwarding          = 'no',
-  $max_auth_tries          = 4,
-  $password_authentication = 'yes',
-  $ciphers                 = 'aes128-ctr,aes192-ctr,aes256-ctr',
-  $client_alive_interval   = 300,
-  $client_alive_count_max  = 0,
-  $allow_users             = 'UNSET',
-  $deny_users              = 'UNSET',
-  $banner                  = '/etc/issue.net',
-  $sftp_chroot             = false,
-  $config_template         = $openssh::params::config_template,
-  $service_name            = $openssh::params::service_name,
-  $service_ensure          = "running",
-  $service_enable          = true,
-  $restart_service         = true,
-  $package_name            = 'openssh-server',
-  $package_ensure          = present) inherits openssh::params {
+  $port,
+  $permit_root_login,
+  $log_level,
+  $x11_forwarding,
+  $max_auth_tries,
+  $password_authentication,
+  $ciphers,
+  $client_alive_interval,
+  $client_alive_count_max,
+  $allow_users,
+  $deny_users,
+  $banner,
+  $sftp_chroot,
+  $config_template,
+  $service_name,
+  $service_ensure,
+  $service_enable,
+  $restart_service,
+  $package_name,
+  $package_ensure) inherits openssh::params {
   if $package_ensure == true {
     include openssh::install
   }
