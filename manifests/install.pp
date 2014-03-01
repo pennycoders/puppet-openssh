@@ -10,12 +10,10 @@
 #
 # Do not call directly.
 #
-class openssh::install {
-
+class openssh::install (
+  $package_name) inherits openssh::params {
   $package_name   = $openssh::package_name
   $package_ensure = $openssh::package_ensure
 
-  package { $package_name:
-    ensure => $package_ensure,
-  }
+  package { $package_name: ensure => $package_ensure, }
 }
