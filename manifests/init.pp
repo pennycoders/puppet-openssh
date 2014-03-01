@@ -117,11 +117,9 @@ class openssh (
     include openssh::install
   }
 
-  if $restart_service == 'running' {
-    class { 'openssh::service': }
-  }
-
-  class { 'openssh::config':
-    notify => Service[$service_name]
+  if $restart_service == true {
+    class { 'openssh::service': } -> class { 'openssh::config': }
+  } else {
+    class { 'openssh::config': }
   }
 }
