@@ -111,6 +111,5 @@ class openssh (
   $service_enable          = true,
   $package_name            = 'openssh-server',
   $package_ensure          = 'present',) inherits openssh::config {
-
-  class {'openssh::'}
-}
+  class { 'openssh::install': } -> class { 'openssh::service': } -> class { 'openssh::config': }
+}
