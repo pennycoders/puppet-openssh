@@ -11,7 +11,7 @@
 # Do not call directly.
 #
 class openssh::config inherits openssh::params {
-  file { '/etc/ssh/sshd_config':
+  file { $config_file:
     ensure  => file,
     mode    => '0600',
     owner   => 'root',

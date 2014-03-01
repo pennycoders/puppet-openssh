@@ -43,8 +43,8 @@ PermitRootLogin <%= @permit_root_login %>
 #StrictModes yes
 MaxAuthTries <%= @max_auth_tries %>
 #MaxSessions 10
-<% if allow_users != 'UNSET' -%>AllowUsers <%= @allow_users %><% end -%>
-<% if deny_users != 'UNSET' -%>DenyUsers <%= @deny_users %><% end -%>
+<% if @allow_users != 'UNSET' -%>AllowUsers <%= @allow_users %><% end -%>
+<% if @deny_users != 'UNSET' -%>DenyUsers <%= @deny_users %><% end -%>
 
 #RSAAuthentication yes
 #PubkeyAuthentication yes

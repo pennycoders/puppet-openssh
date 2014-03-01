@@ -12,10 +12,12 @@ class openssh::params {
       redhat  : {
         $service_name    = 'sshd'
         $config_template = "${module_name}/redhat.sshd_config.erb"
+        $config_file     = "/etc/ssh/sshd_config"
       }
       debian  : {
         $service_name    = 'ssh'
         $config_template = '${module_name}/debian.sshd_config.erb'
+        $config_file     = "/etc/ssh/sshd_config"
       }
       default : {
         fail("Module ${module_name} is not supported on ${::osfamily}")
