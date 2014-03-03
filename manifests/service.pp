@@ -20,7 +20,6 @@ class openssh::service inherits openssh::params {
   service { $service_name:
     ensure    => $service_ensure,
     enable    => $service_enable,
-    require   => [Class['openssh::config']],
     subscribe => $subscribe
   }
 }
