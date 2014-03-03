@@ -77,6 +77,8 @@
 # [*package_ensure*]
 #   Should openssh be installed? defaults to present.
 #
+# [*replace_config*]
+# Whether or not the ssh config should be replaced
 # === Examples
 #
 #  class { 'openssh':
@@ -112,9 +114,10 @@ class openssh (
   $restart_service         = $openssh::params::restart_service,
   $package_name            = $openssh::params::package_name,
   $config_file             = $openssh::params::config_file,
-  $package_ensure          = $openssh::params::package_ensure) inherits openssh::params {
+  $package_ensure          = $openssh::params::package_ensure,
+  $replace_config          = $openssh::params::replace_config) inherits openssh::params {
   anchor { 'openssh::start': } ->
   class { 'openssh::install': } ->
   anchor { 'openssh::install': } ->
   class { 'openssh::service': }
-}
+}

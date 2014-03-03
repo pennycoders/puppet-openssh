@@ -16,6 +16,7 @@ class openssh::config {
     ensure  => file,
     mode    => '0600',
     owner   => 'root',
+    replace => $openssh::replace_config,
     group   => 'root',
     notify  => Service[$openssh::service_name],
     require => [Service[$openssh::service_name]],
