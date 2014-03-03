@@ -20,6 +20,5 @@ class openssh::config {
     notify  => Service[$openssh::service_name],
     require => [Service[$openssh::service_name]],
     content => template($openssh::config_template)
-  } ->
-  anchor { 'openssh::config::end': }
+  }
 }
