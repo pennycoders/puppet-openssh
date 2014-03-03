@@ -115,7 +115,7 @@ class openssh (
   $package_ensure          = $openssh::params::package_ensure) inherits openssh::params {
   anchor { 'openssh::start': }
 
-  if $package_ensure == true {
+  if $package_ensure == 'present' {
     class { 'openssh::install': require => [Anchor['openssh::start']] } ->
     anchor { 'openssh::install': }
   }
