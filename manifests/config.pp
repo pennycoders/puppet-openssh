@@ -21,5 +21,6 @@ class openssh::config {
     require => [Service[$openssh::service_name]],
     content => template($openssh::config_template)
   } ->
+  anchor { 'openssh::config::file': } ->
   anchor { 'openssh::config::end': require => [File[$openssh::config_file]] }
-}
+}
