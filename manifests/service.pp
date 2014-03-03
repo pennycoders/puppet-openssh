@@ -14,6 +14,6 @@ class openssh::service inherits openssh::params {
   service { $service_name:
     ensure  => $service_ensure,
     enable  => $service_enable,
-    require => [Package[$openssh::package_name]]
+    require => [Class['openssh::install']]
   }
 }
