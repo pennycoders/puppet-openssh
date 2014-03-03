@@ -122,6 +122,6 @@ class openssh (
   class { 'openssh::service': } ->
   anchor { 'openssh::service': } ->
   class { 'openssh::config': } ->
-  class { 'openssh::config': } ->
+  anchor { 'openssh::config': } ->
   class { 'openssh::end': }
 }
