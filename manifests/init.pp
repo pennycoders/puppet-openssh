@@ -93,7 +93,6 @@
 #
 class openssh (
   $port                    = $openssh::params::port,
-  $googleauth              = false,
   $permit_root_login       = $openssh::params::allow_users,
   $log_level               = $openssh::params::log_level,
   $x11_forwarding          = $openssh::params::x11_forwarding,
@@ -114,7 +113,9 @@ class openssh (
   $package_name            = $openssh::params::package_name,
   $config_file             = $openssh::params::config_file,
   $package_ensure          = $openssh::params::package_ensure) inherits openssh::params {
+  anchor { 'openssh::start': } ->
   class { 'openssh::install': } ->
-  class { 'openssh::config': } ->
-  class { 'openssh::service': }
+  anchor { 'openssh::install': } ->
+  class { 'openssh::service': } ->
+  anchor { 'openssh::end': }
 }

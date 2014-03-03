@@ -11,6 +11,7 @@
 # Do not call directly.
 #
 class openssh::config {
+  anchor { 'openssh::config::start': } ->
   file { $openssh::config_file:
     ensure  => file,
     mode    => '0600',
