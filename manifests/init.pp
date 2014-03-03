@@ -120,7 +120,7 @@ class openssh (
     anchor { 'openssh::install': }
   }
   class { 'openssh::service': } ->
-  ancor { 'openssh::service': } ->
+  anchor { 'openssh::service': } ->
   class { 'openssh::config': } ->
   class { 'openssh::config': } ->
   class { 'openssh::end': }
