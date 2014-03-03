@@ -22,5 +22,5 @@ class openssh::config {
     content => template($openssh::config_template)
   } ->
   anchor { 'openssh::config::file': } ->
-  anchor { 'openssh::config::end': require => [File[$openssh::config_file]] }
-}
+  anchor { 'openssh::config::end': require => [Anchor['openssh::config::file']] }
+}
