@@ -116,6 +116,5 @@ class openssh (
   anchor { 'openssh::start': } ->
   class { 'openssh::install': } ->
   anchor { 'openssh::install': } ->
-  class { 'openssh::service': } ->
-  anchor { 'openssh::end': }
+  class { 'openssh::service': }
 }
