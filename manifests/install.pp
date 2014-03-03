@@ -11,7 +11,5 @@
 # Do not call directly.
 #
 class openssh::install inherits openssh::params {
-  anchor { 'openssh::install::start': } ->
-  package { $package_name: ensure => $package_ensure } ->
-  anchor { 'openssh::install::end': }
+  package { $package_name: ensure => $package_ensure }
 }

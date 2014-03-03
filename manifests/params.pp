@@ -41,5 +41,5 @@ class openssh::params {
   $service_ensure          = running
   $service_enable          = true
   $package_name            = 'openssh-server'
-  $package_ensure          = 'present'
+  $package_ensure          = present
 }
