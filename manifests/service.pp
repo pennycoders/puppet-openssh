@@ -13,11 +13,14 @@
 class openssh::service inherits openssh::params {
   if $restart_service == true {
     $subscribe = File[$config_file]
+  } else {
+    $subscribe = undef
   }
 
   service { $service_name:
     ensure    => $service_ensure,
     enable    => $service_enable,
-    subscribe => undef
+    require   => [Class['openssh::config']],
+    subscribe => $subscribe
   }
 }
