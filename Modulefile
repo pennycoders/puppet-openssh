@@ -1,5 +1,5 @@
 name    'pennycoders-openssh'
-version '1.0.19'
+version '1.0.20'
 source 'https://github.com/pennycoders/puppet-openssh'
 author 'Alex <dtk@dtk.me>'
 license 'ASL 2.0'
@@ -9,4 +9,4 @@ project_page 'https://github.com/pennycoders/puppet-openssh'
 
 ## Add dependencies, if any:
 # dependency 'username/name', '>= 1.2.0'
-dependency 'puppetlabs/stdlib', '>= 4.1.0'
+dependency 'puppetlabs/stdlib', '>=4.0.0'
