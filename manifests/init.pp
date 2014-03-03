@@ -93,6 +93,7 @@
 #
 class openssh (
   $port                    = $openssh::params::port,
+  $googleauth              = false,
   $permit_root_login       = $openssh::params::allow_users,
   $log_level               = $openssh::params::log_level,
   $x11_forwarding          = $openssh::params::x11_forwarding,
