@@ -124,12 +124,12 @@ class openssh (
   }
 
   if $restart_service == true {
-    $notify = Class['openssh::service']
+    $ntf = Class['openssh::service']
   } else {
-    $notify = undef
+    $ntf = undef
   }
 
   class { 'openssh::config':
-    notify => $notify
+    notify => $ntf
   }
 }
