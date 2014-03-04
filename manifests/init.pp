@@ -116,7 +116,20 @@ class openssh (
   $config_file             = $openssh::params::config_file,
   $package_ensure          = $openssh::params::package_ensure,
   $replace_config          = $openssh::params::replace_config) inherits openssh::params {
-  class { 'openssh::install': } ->
-  class { 'openssh::config': } ~>
-  class { 'openssh::service': }
+  if $package_ensure == 'present' {
+    class { 'openssh::install': }
+  }
+
+  class { 'openssh::service':
+  }
+
+  if $restart_service == true {
+    $notify = Class['openssh::service']
+  } else {
+    $notify = undef
+  }
+
+  class { 'openssh::config':
+    notify => $notify
+  }
 }
