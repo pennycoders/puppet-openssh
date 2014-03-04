@@ -118,7 +118,7 @@ class openssh (
   $replace_config          = $openssh::params::replace_config) inherits openssh::params {
   anchor { 'openssh::start': } ->
   class { 'openssh::install': } ->
+  class { 'openssh::service': } ->
   class { 'openssh::config': } ->
-  anchor { 'openssh::install': } ->
-  class { 'openssh::service': }
+  anchor { 'openssh::end': }
 }
