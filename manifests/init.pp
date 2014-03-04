@@ -119,5 +119,5 @@ class openssh (
   class { 'openssh::install': } ->
   class { 'openssh::config': } ~>
   class { 'openssh::service': } ->
-  ahcor { 'openssh::end': }
+  anchor { 'openssh::end': }
 }
