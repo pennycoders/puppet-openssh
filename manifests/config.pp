@@ -20,5 +20,6 @@ class openssh::config {
     group   => 'root',
     notify  => Service[$openssh::service_name],
     content => template($openssh::config_template)
-  }
+  } ->
+  anchor { 'openssh::config::end': }
 }
