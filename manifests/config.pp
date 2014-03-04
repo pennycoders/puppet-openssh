@@ -19,7 +19,6 @@ class openssh::config {
     replace => $openssh::replace_config,
     group   => 'root',
     notify  => Service[$openssh::service_name],
-    require => [Service[$openssh::service_name]],
     content => template($openssh::config_template)
   }
 }
